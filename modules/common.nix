@@ -33,11 +33,13 @@
   # YubiKey daemon
   services.pcscd.enable = true;
 
-  sops.age.keyFile = null;  # use YubiKey via age-plugin-yubikey
+  #sops.age.keyFile = null;  # use YubiKey via age-plugin-yubikey
+  sops.age.keyFile = "/root/.config/sops/age/keys.txt"
 
   sops.secrets."rudolfratusinski" = {
     sopsFile = ../secrets/users.yaml;
     format = "yaml";
+    key = "rudolfratusinski"
     neededForUsers = true;
   };
 
