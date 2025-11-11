@@ -7,6 +7,8 @@
 
   networking.hostName = "parallels";
 
+  boot.loader.systemd-boot.consoleMode = "0";
+
   boot.initrd.availableKernelModules = [ "xhci_pci" "virtio_pci" "virtio_blk" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
