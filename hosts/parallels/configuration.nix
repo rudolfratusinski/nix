@@ -7,7 +7,11 @@
 
   networking.hostName = "parallels";
 
-  boot.loader.systemd-boot.consoleMode = "0";
+  boot.loader.systemd-boot.enable = false;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.efiInstallAsRemovable = true;
+  boot.loader.grub.device = "nodev";
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "virtio_pci" "virtio_blk" ];
   boot.initrd.kernelModules = [ ];
