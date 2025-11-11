@@ -39,7 +39,7 @@
   sops.secrets.rudolfratusinski = {
     sopsFile = ../secrets/users.yaml;
     format = "yaml";
-    key = "rudolfratusinski";
+    # key = "rudolfratusinski";
     neededForUsers = true;
   };
 
