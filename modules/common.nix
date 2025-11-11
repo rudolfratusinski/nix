@@ -39,7 +39,6 @@
   sops.secrets.rudolfratusinski = {
     sopsFile = ../secrets/users.yaml;
     format = "yaml";
-    # key = "rudolfratusinski";
     neededForUsers = true;
   };
 
@@ -49,6 +48,8 @@
     shell = pkgs.zsh;
     hashedPasswordFile = config.sops.secrets.rudolfratusinski.path;
   };
+
+  users.mutableUsers = false;
 
   programs.zsh.enable = true;
   services.openssh.enable = true;
