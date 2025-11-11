@@ -40,12 +40,11 @@
     neededForUsers = true;
   };
 
-  # User
   users.users.rudolfratusinski = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.zsh;
-    hashedPassword = builtins.readFile config.sops.secrets."rudolfratusinski".path;
+    hashedPasswordFile = config.sops.secrets."rudolfratusinski".path;
   };
 
   programs.zsh.enable = true;
