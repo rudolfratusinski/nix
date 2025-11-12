@@ -6,9 +6,10 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     disko.url         = "github:nix-community/disko";
     sops-nix.url      = "github:Mic92/sops-nix";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, disko, sops-nix, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, disko, sops-nix, nixos-hardware, ... }:
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -34,6 +35,9 @@
         sops-nix.nixosModules.sops
         { nixpkgs.overlays = [ overlay-unstable ]; }
       ];
+      specialArgs = {
+        inherit nixos-hardware;
+      };
     };
   in {
     nixosConfigurations = lib.genAttrs hostNames mkHost;
