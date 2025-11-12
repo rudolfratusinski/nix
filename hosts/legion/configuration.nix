@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
+    <nixos-hardware/lenovo/legion/16achg6/hybrid>
     ./hardware-configuration.nix
     ./disko.nix
   ];
